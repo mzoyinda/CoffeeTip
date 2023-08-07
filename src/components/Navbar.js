@@ -48,8 +48,11 @@ const Container = styled.div`
   }
 
   h1 {
-    font-size: 20px;
-    margin-top: 30px;
+    font-size: 36px;
+    margin-top: 23px;
+    letter-spacing: 0.03em;
+    line-height: 32px;
+    font-family: 'Cookie', cursive;
   }
 
   .balance {
