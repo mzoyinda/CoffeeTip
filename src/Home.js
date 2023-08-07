@@ -2,12 +2,14 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Navbar from './components/Navbar';
 import Herosection from './components/Herosection';
+import Footer from './components/Footer';
 
 const Home = () => {
   return (
     <Container>
      <Navbar/>
      <Herosection/>
+     <Footer/>
     </Container>
   )
 }

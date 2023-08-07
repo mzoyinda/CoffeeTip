@@ -15,7 +15,7 @@ const Herosection = () => {
 const Container = styled.section`
 max-width: 600px;
 margin: 0 auto;
-margin-top: 140px;
+margin-top: 160px;
 padding:0 24px ;
 
 h2{
