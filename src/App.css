@@ -20,7 +20,8 @@ body{
   font-family: 'Lora', serif;
   box-sizing: border-box;
   position: relative;
-  background: #F4F4F5;
+  background: #b08968;
+  scrollbar-color: #76521B;
 }
 
 a{
