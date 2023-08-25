@@ -13,16 +13,34 @@ export const NavContainer = styled.div`
 
   a {
     font-weight: 500;
-    /* line-height: 20px;
-    height: 56px; */
     text-align: center;
     display: inline-flex;
     text-decoration: none;
-    color: #76520e;
+    color:#7f5539;
+
     &:hover {
       font-weight: 600;
       cursor: pointer;
-      /* color: #4d4d4d; */
+    }
+
+  }
+
+  button{
+    width: 140px;
+    height: 45px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #7f5539;
+    color:#fff;
+    svg{
+      color:#fff;
+      font-weight: 500;
+      margin-left: 10px;
+  
+      &:hover {
+        font-weight: 600;
+        cursor: pointer;
+      }
     }
   }
 
@@ -180,7 +198,7 @@ export const FormContainer = styled.main`
 /* background-color: #fff;
 height: 100vh; */
 .login {
-  width: 360px;
+  width: 420px;
   padding: 8% 0 0;
   margin: auto;
 }
@@ -188,16 +206,16 @@ height: 100vh; */
 .form {
   position: relative;
   z-index: 1;
-  background: #f2f4f3;
+  background: #fff;
   border-radius: 10px;
   max-width: 400px;
-  margin: 0 auto 100px;
+  margin: 15% auto;
   padding: 45px;
   text-align: center;
  
   input {
     outline: 0;
-    /* background: #b08968; */
+    background: #DEDBD6;
     width: 100%;
     border: 0;
     border-radius: 5px;
@@ -205,15 +223,10 @@ height: 100vh; */
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    font-family: 'Comfortaa', cursive;
     
-    /* &:focus, &:active{
-      background: #b08968;
-    } */
   }
   
   button {
-    font-family: 'Comfortaa', cursive;
     text-transform: uppercase;
     outline: 0;
     background: #7f5539;
@@ -246,11 +259,26 @@ height: 100vh; */
     font-size: 14px;
     color: red;
   }
+
+  p.account{
+    margin-top: 15px;
+    font-size: 14px;
+
+    a{
+      font-weight: 600;
+      color: #7f5539;
+    }
+  }
 }
 
 
 
 `;
+
+export const ProfileContainer = styled.main`
+
+`;
+
 export const FooterContainer = styled.footer`
 /* position: fixed;
 bottom: 0; */

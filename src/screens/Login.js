@@ -20,6 +20,7 @@ const Login = () => {
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
+            
           // Alert the input values of the form that we filled
           alert(JSON.stringify(values));
         }}
@@ -34,12 +35,10 @@ const Login = () => {
         }) => (
           <div className="login">
             <div className="form">
-           {/* Passing handleSubmit parameter tohtml form onSubmit property */}
+
               <form noValidate onSubmit={handleSubmit}>
                 <span>Login</span>
-              {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
-
-               {/* If validation is not passed show errors */}
+        
                <p className="error">
                   {errors.email && touched.email && errors.email}
                 </p>
@@ -54,10 +53,7 @@ const Login = () => {
                   className="form-control inp_text"
                   id="email"
                 />
-               
-                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
-
-                  {/* If validation is not passed show errors */}
+             
                 <p className="error">
                   {errors.password && touched.password && errors.password}
                 </p>
@@ -71,9 +67,9 @@ const Login = () => {
                   className="form-control"
                 />
                 
-                {/* Click on submit button to submit the form */}
                 <button type="submit">Login</button>
               </form>
+              <p className="account">Dont have an account? <a href="/register">Sign Up</a></p>
             </div>
           </div>
         )}
