@@ -22,7 +22,6 @@ export const NavContainer = styled.div`
       font-weight: 600;
       cursor: pointer;
     }
-
   }
 
   button{
@@ -30,6 +29,8 @@ export const NavContainer = styled.div`
     height: 45px;
     font-weight: 500;
     font-size: 14px;
+    border: transparent;
+    border-radius: 15px;
     background-color: #7f5539;
     color:#fff;
     svg{
@@ -73,8 +74,8 @@ export const NavContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 66px;
-    a + a {
-      margin-left: 42px;
+    a + button {
+      margin-left: 25px;
     }
     img {
       width: 36px;
@@ -203,6 +204,7 @@ height: 100vh; */
   margin: auto;
 }
 
+
 .form {
   position: relative;
   z-index: 1;
@@ -269,14 +271,59 @@ height: 100vh; */
       color: #7f5539;
     }
   }
-}
+} 
 
 
 
 `;
 
 export const ProfileContainer = styled.main`
+padding: 50px 0;
+margin:0  100px ;
 
+
+.headline{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-right: 100px; */
+
+  h2{
+    /* margin-left: 140px; */
+  }
+img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 40px;
+}
+}
+
+.box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  svg{
+    font-size: 35px;
+    color: #9C5E37;
+    margin-right: 30px;
+  }
+}
+
+.img__box{
+display: flex;
+flex-direction: column;
+/* align-items: center; */
+justify-content: center;
+ img{
+    width: 95%;
+    margin: 20px auto;
+    object-fit: cover;
+    height: 350px;
+    border-radius: 30px;
+  }
+}
 `;
 
 export const FooterContainer = styled.footer`

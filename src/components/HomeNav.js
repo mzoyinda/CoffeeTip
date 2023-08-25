@@ -20,7 +20,9 @@ const HomeNav = ({status}) => {
         {status === 'offline' ? 
         <Flexbox>
           <a href="/register">Sign Up</a>
-          <a href="/login">Login</a>
+          <button onClick={()=> Navigate("/login")}>
+            Login
+          </button>
         </Flexbox>
         :
         <button onClick={()=> Navigate("/")}>
