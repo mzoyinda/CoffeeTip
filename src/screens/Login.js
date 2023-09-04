@@ -1,6 +1,13 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { FormContainer } from "../assets/styles";
+import { useState } from "react";
+import axios from "axios";
+import Cookies from "universal-cookie";
+import Swal from 'sweetalert2'
+
+
+const cookies = new Cookies();
 
 // Creating schema
 const schema = Yup.object().shape({
@@ -9,20 +16,55 @@ const schema = Yup.object().shape({
     .email("Invalid email format"),
   password: Yup.string()
     .required("Password is a required field")
-    .min(8, "Password must be at least 8 characters"),
 });
 
 const Login = () => {
+  const [Loading, setLoading] = useState(false);
+
   return (
     <FormContainer>
-      {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
+
       <Formik
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
-            
-          // Alert the input values of the form that we filled
-          alert(JSON.stringify(values));
+          setLoading(true);
+            // set configurations
+        const configuration = {
+          method: "post",
+          url: "http://localhost:5001/login",
+          data: values,
+        };
+
+            // make the API call
+        axios(configuration)
+        .then((result) => {
+          setLoading(false);
+          // set the cookie
+          cookies.set("TOKEN", result.data.token, {
+            path: "/",
+          });
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Login Successful',
+            showConfirmButton: false
+          })
+
+          // redirect user to the dashboard page
+          window.location.href = "/dashboard";
+        })
+        .catch((error) => {
+          error = new Error();
+          setLoading(false);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'User does not exist!'
+          })
+        });
+          // Alert the input values of the form
+          // alert(JSON.stringify(values));
         }}
       >
         {({
@@ -67,7 +109,7 @@ const Login = () => {
                   className="form-control"
                 />
                 
-                <button type="submit">Login</button>
+                <button type="submit">{Loading ? "Loading..." : "Login"}</button>
               </form>
               <p className="account">Dont have an account? <a href="/register">Sign Up</a></p>
             </div>

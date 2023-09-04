@@ -33,6 +33,22 @@ const Form = () => {
         }) => (
           <form className="wrapper" onSubmit={handleSubmit}>
             <h3>Send a CoffeeTip.. </h3>
+            <div className="grouped">
+              <p className="error">
+                {errors.fullname && touched.fullname && errors.fullname}
+              </p>
+           
+                <input
+                  id="fullname"
+                  name="fullname"
+                  type="text"
+                  placeholder="Enter your name"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.fullname}
+                  className="form-control inp_text"
+                />
+            </div>
 
             <div className="grouped">
               <p className="error">

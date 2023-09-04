@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import ImageBg from "../../assets/coffee-mix.jpeg";
 import Form from "./Form";
 import melanie from "../../assets/melanie.jpeg";
-import {IoMdNotificationsOutline} from "react-icons/io"
+import {IoMdNotificationsOutline} from "react-icons/io";
 
 
 const UserProfile = () => {
   const Navigate = useNavigate();
-
   return (
     <ProfileContainer>
         <div className="headline">
