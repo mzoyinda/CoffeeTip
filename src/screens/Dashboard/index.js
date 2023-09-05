@@ -18,7 +18,7 @@ const Index = () => {
 
     // set an initial state for the message we will receive after the API call
     const [name, setName] = useState("");
-
+    const [wallet, setWallet] = useState(null);
 
     // useEffect automatically executes once the page is fully loaded
     useEffect(() => {
@@ -34,8 +34,11 @@ const Index = () => {
       // make the API call
       axios(configuration)
         .then((result) => {
+          console.log(result)
           // assign the message in our result to the message we initialized above
-          setName(result.data.email);
+          setName(result.data.name);
+          setWallet(...token.wallets)
+          console.log(wallet)
         })
         .catch((error) => {
           error = new Error();
@@ -55,7 +58,6 @@ const Index = () => {
   return (
     <HomeContainer>
       <Navbar status="online" logout={logout}/>
-      <h4>{name}</h4>
             <UserProfile name ={name}/>
       <Footer />
     </HomeContainer>

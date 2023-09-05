@@ -1,6 +1,9 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { FormContainer } from "../assets/styles";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 // Creating schema
 const schema = Yup.object().shape({
@@ -19,7 +22,8 @@ const schema = Yup.object().shape({
   ),
 });
 
-const Login = () => {
+const SignUp = () => {
+  const [Loading, setLoading] = useState(false);
   return (
     <FormContainer>
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
@@ -27,8 +31,36 @@ const Login = () => {
         validationSchema={schema}
         initialValues={{ email: "", name: "", password: "" }}
         onSubmit={(values) => {
-          // Alert the input values of the form that we filled
-          alert(JSON.stringify(values));
+          setLoading(true);
+    // set configurations
+    const configuration = {
+      method: "post",
+      url: "http://localhost:5001/register",
+      data: values,
+    };
+
+    // make the API call
+    axios(configuration)
+      .then((result) => {
+        setLoading(false);
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Registration Successful',
+          showConfirmButton: false
+        })
+  // redirect user to the login page
+  window.location.href = "/login";
+      })
+      .catch((error) => {
+        error = new Error();
+        setLoading(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Something went wrong.. please try again later!"
+        })
+      });
         }}
       >
         {({
@@ -118,7 +150,7 @@ const Login = () => {
                   className="form-control"
                 />
 
-                <button type="submit">Sign up</button>
+                <button type="submit">{Loading ? "Loading..." : "Signup"}</button>
               </form>
               <p className="account">
                 Already have an account? <a href="/login">Log In</a>
@@ -131,4 +163,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

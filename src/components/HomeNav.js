@@ -5,7 +5,7 @@ import {FiLogOut} from "react-icons/fi"
 import { useNavigate } from "react-router-dom";
 
 
-const HomeNav = ({status}) => {
+const HomeNav = ({status, logout}) => {
 
   const Navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const HomeNav = ({status}) => {
           </button>
         </Flexbox>
         :
-        <button onClick={()=> Navigate("/")}>
+        <button onClick={logout}>
         <span>Logout </span>
         <FiLogOut/>
       </button>
